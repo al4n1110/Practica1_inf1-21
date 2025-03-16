@@ -1,8 +1,8 @@
 public class Persona {
     //Atributos
-    public String nombre;
-    public int edad;
-    public String ciudad;
+    private String nombre;
+    private int edad;
+    private String ciudad;
 
     //Constructor
     public Persona(String n , int e , String ciu){

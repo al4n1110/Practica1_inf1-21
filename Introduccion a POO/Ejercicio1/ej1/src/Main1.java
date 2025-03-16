@@ -1,4 +1,4 @@
-public class App {
+public class Main1 {
     public static void main(String[] args) throws Exception {
         //Instanciando las clases
         Persona persona1 = new Persona("Pedro" , 17 , "Santa Cruz");

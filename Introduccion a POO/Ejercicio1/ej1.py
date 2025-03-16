@@ -1,15 +1,15 @@
 #Clase(s)
 class Persona:
     def __init__(self, nombre , edad , ciudad ):
-        self.nombre = nombre
-        self.edad = edad
-        self.ciudad = ciudad
+        self.__nombre = nombre
+        self.__edad = edad
+        self.__ciudad = ciudad
         
     def saludo(self):
-        print(f"Hola, soy {self.nombre} de {self.ciudad}")
+        print(f"Hola, soy {self.__nombre} de {self.__ciudad}")
         
     def es_mayor_de_edad(self):
-        if self.edad >= 18:
+        if self.__edad >= 18:
             print("Es mayor de edad")
         else:
             print("No es mayor de edad")
