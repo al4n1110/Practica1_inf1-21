@@ -1,7 +1,7 @@
-Practica-1-INF-121
+# Practica-1-INF-121
 
-Alan Paulo Sanchez Silva
+## Alan Paulo Sanchez Silva
 
-CI:12926965
+### CI:12926965
 
-RU:1878283
+### RU:1878283
