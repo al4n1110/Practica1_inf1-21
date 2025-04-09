@@ -1,7 +1,7 @@
 public class Main3 {
     public static void main(String[] args) throws Exception {
-        Coche coche1 = new Coche("Honda", "Civic");
-        Coche coche2 = new Coche("BMW", "X3");
+        Coche coche1 = new Coche("Mazda", "RX8");
+        Coche coche2 = new Coche("Toyota", "Corolla");
 
         //Acelerando y frenando los coches
         coche1.acelerar();

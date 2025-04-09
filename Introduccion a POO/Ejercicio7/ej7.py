@@ -4,22 +4,26 @@ class Celular:
         self.__espacio = 1024
         self.__bateria = int(input("Ingrese el porcentaje de la bateria actual:")) 
         self.__esError = False
+        self.__pesoApp = 0
+        self.__tope = 1
+        
     def instalarApp(self):
+        self.__apps[0] = "------"
         if self.__bateria > 0 and self.__bateria <= 100:
-            tope = 1
-            self.__apps[0] = "------"
-            self.__apps[tope] = input("Aplicacion a instalar:")
-            tope += 1
-            peso_app = float(input("Ingrese cuanto pesa la app:"))
-            if peso_app <= 0:
+            self.__apps[self.__tope] = input("Aplicacion a instalar:")
+            self.__tope += 1
+            self.__peso_app = float(input("Ingrese cuanto pesa la app:"))
+            if self.__peso_app <= 0:
                 print("Error, entrada invalida")
-            elif peso_app >= 1024:
+            elif self.__peso_app >= 1024:
                 print("Espacio lleno")
+                exit()
             else:
-                self.__espacio -= peso_app
+                self.__espacio -= self.__peso_app
         else:
             print("ERROR, FUERA DE RANGO")
             self.__esError = True
+            print("El celular esta apagado")
     def usarApp(self):
         if self.__esError == False: 
             print(
@@ -49,14 +53,37 @@ class Celular:
             entrada = int(input("Ingresa en numero de app que deseas abrir:"))
             for i in range(len(self.__apps)):
                 if i == entrada:
-                    print(f"Ejecutando la app de {self.__apps[entrada]}")
-                    if self.__espacio > 1000:
-                        
-        else:
-            print("ERROR NO SE PUDO EJECUTAR LA APP")
+                    print(f"Ejecutando la app de {self.__apps[entrada]}....")
+            tiempo = int(input("Ingrese cuántos minutos usara la app:"))
+            if self.__peso_app >  100 :
+                consumo = (tiempo // 10) * 2
+            elif self.__peso_app > 250:
+                consumo = (tiempo // 10) * 5
+            else:
+                consumo = (tiempo // 10) * 1
+            
+            if consumo >  self.__bateria:
+                print("La bateria no alcanza para usar esta app ese tiempo")
+                self.__bateria = 0
+            else:
+                self.__bateria -= consumo
+            
+            if self.__bateria == 0:
+                print("Celular apagado, bateria agotada")
+            else:
+                print(f"Usaste la app durante {tiempo} minutos ")
+                print(f"Bateria restante: {self.__bateria}%")
+    
+    def mostrarBateria(self):
+        print(f"Queda {self.__bateria}% de bateria")
 
 #Main
 celular = Celular()
 celular.instalarApp()
+celular.instalarApp()
+celular.instalarApp()
+celular.instalarApp()
+celular.instalarApp()
+celular.instalarApp()
 celular.usarApp()
-    
+celular.mostrarBateria()
